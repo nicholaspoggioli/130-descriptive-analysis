@@ -180,22 +180,19 @@ MapDE=thematicMap(M,
                 n.labels=2,
                 community.repulsion = 0.2,
                 synonyms = ("artificial intelligence;artificial intelligence (ai)"),
-                repel = TRUE,
-                cluster="optimal")
+                repel = TRUE)
 plot(MapDE$map)
 
 ## Using WoS Keywords Plus keywords
 MapID=thematicMap(M, 
                 field = "ID", 
                 n = 250, 
-                minfreq = 4,
+                minfreq = 1,
                 stemming = F, 
                 size = 0.7, 
                 n.labels=2,
                 community.repulsion = 0.2,
-                synonyms = ("artificial intelligence;artificial intelligence (ai)"),
-                repel = TRUE,
-                cluster="optimal")
+                repel = TRUE)
 plot(MapID$map)
 
 
