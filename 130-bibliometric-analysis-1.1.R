@@ -47,11 +47,21 @@ cbind(CR$Cited[1:20])
 
 # Co-citation analysis of references
 NetMatrix <- biblioNetwork(M, analysis = "co-citation", network = "references", sep = ";")
-net=networkPlot(NetMatrix, n = 20, Title = "Co-Citation Network", 
-                type = "fruchterman", size.cex=TRUE, size=5,
-                community.repulsion = 1,label.cex = TRUE,
-                remove.multiple=T, labelsize=1.0,edgesize = 1, 
-                edges.min=1)
+net=networkPlot(NetMatrix, 
+                n = 105, 
+                Title = "Co-Citation Network", 
+                type = "auto", 
+                labelsize=0.5,
+                label.cex = FALSE,
+                halo=TRUE,
+                community.repulsion = 0.01,
+                size=5,
+                size.cex=F, 
+                remove.multiple=T, 
+                remove.isolates=T,
+                edgesize = 1, 
+                edges.min=3,
+                )
 
 netstat <- networkStat(NetMatrix)
 summary(netstat,k=10)
