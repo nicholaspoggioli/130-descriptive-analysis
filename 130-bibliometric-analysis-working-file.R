@@ -157,13 +157,14 @@ summary(netstat,k=10)
 
 suppressWarnings(
   CS <- conceptualStructure(M, 
-                            field="DE_TM", 
-                            method="MCA", 
-                            minDegree=5, 
-                            clust=5, 
-                            stemming=FALSE, 
+                            field="DE",
+                            ngrams=1,
+                            method="MDS", 
+                            minDegree=2, 
+                            clust="auto", 
+                            stemming=F, 
                             labelsize=15,
-                            documents=20
+                            #documents=20
                             )
                 )
 
