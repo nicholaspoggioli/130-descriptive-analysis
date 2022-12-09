@@ -92,7 +92,6 @@ net=networkPlot(NetMatrix,
 netstat <- networkStat(NetMatrix)
 summary(netstat,k=10)
 
-
 # Section 3: Historiograph - Direct citation linkages
 histResults <- histNetwork(M, 
                            sep = ";")
@@ -102,7 +101,6 @@ net <- histPlot(histResults,
                 n=30, 
                 size = 2, 
                 labelsize = 2)
-
 
 # Section 4: The conceptual structure - Co-Word Analysis
 NetMatrix <- biblioNetwork(M, 
@@ -142,7 +140,6 @@ suppressWarnings(
                             )
                 )
 
-
 # Section 5: Thematic Map
 Map=thematicMap(M, 
                 field = "ID", 
@@ -152,6 +149,7 @@ Map=thematicMap(M,
                 size = 0.7, 
                 n.labels=5, 
                 repel = TRUE)
+
 plot(Map$map)
 
 # Cluster description
@@ -164,7 +162,12 @@ CL
 # Section 6: The social structure - Collaboration Analysis
 
 # Author collaboration network
-NetMatrix <- biblioNetwork(M, analysis = "collaboration",  network = "authors", sep = ";")
+NetMatrix <- biblioNetwork(M, 
+                           analysis = "collaboration", 
+                           network = "authors", 
+                           sep = ";"
+                           )
+
 net=networkPlot(NetMatrix,  
                 n = 40, 
                 Title = "Author collaboration",
@@ -175,13 +178,19 @@ net=networkPlot(NetMatrix,
                 normalize = "salton",
                 label.cex=TRUE,
                 community.repulsion = 0.01,
-                edges.min=1)
+                edges.min=1
+                )
 
 netstat <- networkStat(NetMatrix)
 summary(netstat,k=15)
 
 # Institutional collaboration network
-NetMatrix <- biblioNetwork(M, analysis = "collaboration",  network = "universities", sep = ";")
+NetMatrix <- biblioNetwork(M, 
+                           analysis = "collaboration", 
+                           network = "universities", 
+                           sep = ";"
+                           )
+
 net=networkPlot(NetMatrix,  
                 n = 20, 
                 Title = "University collaboration",
@@ -190,7 +199,8 @@ net=networkPlot(NetMatrix,
                 edgesize = 1,
                 label.cex=TRUE,
                 community.repulsion = 0.02,
-                edges.min=1)
+                edges.min=1
+                )
 
 netstat <- networkStat(NetMatrix)
 summary(netstat,k=15)
@@ -198,17 +208,22 @@ summary(netstat,k=15)
 # Country collaboration network
 M <- metaTagExtraction(M, 
                        Field = "AU_CO", 
-                       sep = ";")
+                       sep = ";"
+                       )
+
 NetMatrix <- biblioNetwork(M, 
                            analysis = "collaboration", 
                            network = "countries", 
-                           sep = ";")
+                           sep = ";"
+                           )
+
 net=networkPlot(NetMatrix,  
                 n = dim(NetMatrix)[1], 
                 Title = "Country collaboration",
                 type = "circle", 
                 size.cex=T,edgesize = 1,
                 label.cex=TRUE, 
-                cluster="none")
+                cluster="none"
+                )
 
 #biblioshiny()
