@@ -170,7 +170,8 @@ suppressWarnings(
 
 
 # Section 5: Thematic Map
-Map=thematicMap(M, 
+## Using author keywords
+MapDE=thematicMap(M, 
                 field = "DE", 
                 n = 250, 
                 minfreq = 4,
@@ -181,7 +182,23 @@ Map=thematicMap(M,
                 synonyms = ("artificial intelligence;artificial intelligence (ai)"),
                 repel = TRUE,
                 cluster="optimal")
-plot(Map$map)
+plot(MapDE$map)
+
+## Using WoS Keywords Plus keywords
+MapID=thematicMap(M, 
+                field = "ID", 
+                n = 250, 
+                minfreq = 4,
+                stemming = F, 
+                size = 0.7, 
+                n.labels=2,
+                community.repulsion = 0.2,
+                synonyms = ("artificial intelligence;artificial intelligence (ai)"),
+                repel = TRUE,
+                cluster="optimal")
+plot(MapID$map)
+
+
 
 # Cluster description
 Clusters=Map$words[order(Map$words$Cluster,-Map$words$Occurrences),]
