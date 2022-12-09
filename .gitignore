@@ -1,2 +1,5 @@
 # Ignore Word files
 *.docx
+
+# RStudio files
+.Rproj.user/
