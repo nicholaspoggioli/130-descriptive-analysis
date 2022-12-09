@@ -119,21 +119,21 @@ NetMatrix <- biblioNetwork(M,
 
 net=networkPlot(NetMatrix, 
                 normalize="association",
-                n = 105, 
+                n = 35, 
                 Title = "Co-occurrence Network of Keywords Based on Appearing in Multiple Papers", 
-                type = "mds", 
-                labelsize=0.6,
+                type = "fruchterman", 
+                labelsize=1,
                 label.cex=F,
                 halo = T,
                 cluster = "optimal",
-                community.repulsion = 0.2,
-                #size=10, 
+                community.repulsion = 0.4,
+                #size=3, 
                 size.cex=T,
                 remove.multiple=T,
                 remove.isolates=T,
                 weighted = T,
                 edgesize = 1,
-                edges.min=5
+                edges.min=1
                 )
 
 netstat <- networkStat(NetMatrix)
