@@ -122,8 +122,8 @@ net=networkPlot(NetMatrix,
                 n = 105, 
                 Title = "Co-occurrence Network of Keywords Based on Appearing in Multiple Papers", 
                 type = "mds", 
-                #labelsize=0.6,
-                label.cex=TRUE,
+                labelsize=0.6,
+                label.cex=F,
                 halo = T,
                 cluster = "optimal",
                 community.repulsion = 0.2,
@@ -133,7 +133,7 @@ net=networkPlot(NetMatrix,
                 remove.isolates=T,
                 weighted = T,
                 edgesize = 1,
-                edges.min=1
+                edges.min=5
                 )
 
 netstat <- networkStat(NetMatrix)
