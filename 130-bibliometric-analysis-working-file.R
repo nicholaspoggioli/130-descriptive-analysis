@@ -119,7 +119,7 @@ NetMatrix <- biblioNetwork(M,
 
 net=networkPlot(NetMatrix, 
                 normalize="association",
-                n = 35, 
+                n = 40, 
                 Title = "Co-occurrence Network of Keywords Based on Appearing in Multiple Papers", 
                 type = "fruchterman", 
                 labelsize=1,
