@@ -3,24 +3,24 @@
     "path": "C:/Dropbox/papers/4-work-in-progress/130-more-than-human-actors/130-descriptive-analysis/130-bibliometric-analysis-working-file.R",
     "project_path": "130-bibliometric-analysis-working-file.R",
     "type": "r_source",
-    "hash": "0",
+    "hash": "1340269454",
     "contents": "",
-    "dirty": true,
+    "dirty": false,
     "created": 1670601274322.0,
     "source_on_save": false,
     "relative_order": 1,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "135,0",
-        "scrollLine": "93"
+        "cursorPosition": "120,40",
+        "scrollLine": "90"
     },
     "folds": "",
-    "lastKnownWriteTime": 1670603541,
+    "lastKnownWriteTime": 1670604212,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1670603802790,
+    "last_content_update": 1670604212575,
     "read_only": false,
     "read_only_alternatives": []
 }
