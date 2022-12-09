@@ -1,3 +1,6 @@
+# Corpus file
+20221111-analysis-corpus-web-of-science-export.txt
+
 # Ignore Word files
 *.docx
 
@@ -8,4 +11,4 @@ figures-and-tables/
 
 130-descriptive-analysis_files/
 
-_archive-130-descriptive-analysis/
+_archive-130-descriptive-analysis/".png" 
