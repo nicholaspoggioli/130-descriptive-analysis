@@ -141,11 +141,23 @@ summary(netstat,k=10)
 
 # Co-word Analysis through Correspondence Analysis
 
-# The field "ID" has keywords, but the field "DE" also has keywords. Which to use?
+## The field "ID" is used in the original code here, but that is the WoS "Keywords Plus,"
+## not the author keywords. Those are in the field "DE".
+
+## From the documentation on conceptualStructure:
+
+### 'field' is a character object. It indicates one of the field tags of the 
+### standard ISI WoS Field Tag codify. field can be equal to one of these tags:
+###   ID		Keywords Plus associated by ISI or SCOPUS database
+###   DE		Author's keywords
+###   ID_TM		Keywords Plus stemmed through the Porter's stemming algorithm
+###   DE_TM		Author's Keywords stemmed through the Porter's stemming algorithm
+###   TI		Terms extracted from titles
+###   AB		Terms extracted from abstracts
 
 suppressWarnings(
   CS <- conceptualStructure(M, 
-                            field="ID", 
+                            field="DE_TM", 
                             method="MCA", 
                             minDegree=5, 
                             clust=5, 
