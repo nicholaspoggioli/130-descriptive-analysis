@@ -46,7 +46,10 @@ cbind(CR$Cited[1:20])
 # Section 2: Intellectual structure of the field
 
 # Co-citation analysis of references
-NetMatrix <- biblioNetwork(M, analysis = "co-citation", network = "references", sep = ";")
+NetMatrix <- biblioNetwork(M, 
+                           analysis = "co-citation", 
+                           network = "references", 
+                           sep = ";")
 net=networkPlot(NetMatrix, 
                 n = 105, 
                 Title = "Co-Citation Network", 
@@ -68,49 +71,87 @@ summary(netstat,k=10)
 
 # Co-citation analysis of sources
 M=metaTagExtraction(M,"CR_SO",sep=";")
-NetMatrix <- biblioNetwork(M, analysis = "co-citation", network = "sources", sep = ";")
+NetMatrix <- biblioNetwork(M, 
+                           analysis = "co-citation", 
+                           network = "sources", 
+                           sep = ";")
 #dev.off() ## use only if you get an error in graphics
-net=networkPlot(NetMatrix, n = 40, Title = "Co-Citation Network Journals", 
-                type = "auto", size.cex=TRUE, #size=15, 
+net=networkPlot(NetMatrix, 
+                n = 40, 
+                Title = "Co-Citation Network Journals", 
+                type = "auto", 
+                size.cex=TRUE, 
+                #size=15, 
                 community.repulsion = 0.1,
-                remove.multiple=T, labelsize=.6,label.cex = TRUE,
-                edgesize = 1, edges.min=3)
+                remove.multiple=T, 
+                labelsize=.6,
+                label.cex = TRUE,
+                edgesize = 1, 
+                edges.min=3)
 
 netstat <- networkStat(NetMatrix)
 summary(netstat,k=10)
 
 
 # Section 3: Historiograph - Direct citation linkages
-histResults <- histNetwork(M, sep = ";")
+histResults <- histNetwork(M, 
+                           sep = ";")
 
 options(width = 140)
-net <- histPlot(histResults, n=30, size = 2, labelsize = 2)
+net <- histPlot(histResults, 
+                n=30, 
+                size = 2, 
+                labelsize = 2)
 
 
 # Section 4: The conceptual structure - Co-Word Analysis
-NetMatrix <- biblioNetwork(M, analysis = "co-occurrences", network = "keywords", sep = ";")
+NetMatrix <- biblioNetwork(M, 
+                           analysis = "co-occurrences", 
+                           network = "keywords", 
+                           sep = ";")
 
-net=networkPlot(NetMatrix, normalize="association",weighted = T, n = 50, 
-                Title = "Keyword Co-occurrences", type = "fruchterman", 
-                size.cex=TRUE, #size=10, 
+net=networkPlot(NetMatrix, 
+                normalize="association",
+                weighted = T, 
+                n = 50, 
+                Title = "Keyword Co-occurrences", 
+                type = "fruchterman", 
+                size.cex=TRUE, 
+                #size=10, 
                 cluster = "optimal",
-                remove.multiple=T, edgesize = 1, 
+                remove.multiple=T, 
+                edgesize = 1, 
                 #labelsize=0.6,
                 label.cex=TRUE,
-                community.repulsion = 0.2,edges.min=1)
+                community.repulsion = 0.2,
+                edges.min=1)
 
 netstat <- networkStat(NetMatrix)
 summary(netstat,k=10)
 
 # Co-word Analysis through Correspondence Analysis
 suppressWarnings(
-  CS <- conceptualStructure(M, method="MCA", field="ID", minDegree=5, clust=5, stemming=FALSE, labelsize=15,documents=20)
-)
+  CS <- conceptualStructure(M, 
+                            method="MCA", 
+                            field="ID", 
+                            minDegree=5, 
+                            clust=5, 
+                            stemming=FALSE, 
+                            labelsize=15,
+                            documents=20
+                            )
+                )
 
 
 # Section 5: Thematic Map
-Map=thematicMap(M, field = "ID", n = 250, minfreq = 4,
-                stemming = FALSE, size = 0.7, n.labels=5, repel = TRUE)
+Map=thematicMap(M, 
+                field = "ID", 
+                n = 250, 
+                minfreq = 4,
+                stemming = FALSE, 
+                size = 0.7, 
+                n.labels=5, 
+                repel = TRUE)
 plot(Map$map)
 
 # Cluster description
@@ -124,30 +165,50 @@ CL
 
 # Author collaboration network
 NetMatrix <- biblioNetwork(M, analysis = "collaboration",  network = "authors", sep = ";")
-net=networkPlot(NetMatrix,  n = 40, Title = "Author collaboration",
-                type = "auto", size.cex=T, #size=10,
-                edgesize = 1, normalize = "salton",label.cex=TRUE,
-                community.repulsion = 0.01,edges.min=1)
+net=networkPlot(NetMatrix,  
+                n = 40, 
+                Title = "Author collaboration",
+                type = "auto", 
+                size.cex=T, 
+                #size=10,
+                edgesize = 1, 
+                normalize = "salton",
+                label.cex=TRUE,
+                community.repulsion = 0.01,
+                edges.min=1)
 
 netstat <- networkStat(NetMatrix)
 summary(netstat,k=15)
 
 # Institutional collaboration network
 NetMatrix <- biblioNetwork(M, analysis = "collaboration",  network = "universities", sep = ";")
-net=networkPlot(NetMatrix,  n = 20, Title = "University collaboration",
-                type = "auto", size.cex=T,edgesize = 1,label.cex=TRUE,
-                community.repulsion = 0.02,edges.min=1)
+net=networkPlot(NetMatrix,  
+                n = 20, 
+                Title = "University collaboration",
+                type = "auto", 
+                size.cex=T,
+                edgesize = 1,
+                label.cex=TRUE,
+                community.repulsion = 0.02,
+                edges.min=1)
 
 netstat <- networkStat(NetMatrix)
 summary(netstat,k=15)
 
 # Country collaboration network
-M <- metaTagExtraction(M, Field = "AU_CO", sep = ";")
-NetMatrix <- biblioNetwork(M, analysis = "collaboration",  network = "countries", sep = ";")
-net=networkPlot(NetMatrix,  n = dim(NetMatrix)[1], Title = "Country collaboration",
-                type = "circle", size.cex=T,edgesize = 1,label.cex=TRUE, 
+M <- metaTagExtraction(M, 
+                       Field = "AU_CO", 
+                       sep = ";")
+NetMatrix <- biblioNetwork(M, 
+                           analysis = "collaboration", 
+                           network = "countries", 
+                           sep = ";")
+net=networkPlot(NetMatrix,  
+                n = dim(NetMatrix)[1], 
+                Title = "Country collaboration",
+                type = "circle", 
+                size.cex=T,edgesize = 1,
+                label.cex=TRUE, 
                 cluster="none")
-
-
 
 #biblioshiny()
