@@ -140,10 +140,13 @@ netstat <- networkStat(NetMatrix)
 summary(netstat,k=10)
 
 # Co-word Analysis through Correspondence Analysis
+
+# The field "ID" has keywords, but the field "DE" also has keywords. Which to use?
+
 suppressWarnings(
   CS <- conceptualStructure(M, 
-                            method="MCA", 
                             field="ID", 
+                            method="MCA", 
                             minDegree=5, 
                             clust=5, 
                             stemming=FALSE, 
