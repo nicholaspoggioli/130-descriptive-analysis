@@ -52,7 +52,7 @@ NetMatrix <- biblioNetwork(M,
                            sep = ";")
 net=networkPlot(NetMatrix, 
                 n = 105, 
-                Title = "Co-Citation Network Based on Shared References", 
+                Title = "Co-Citation Network of Publications Based on Shared References", 
                 type = "auto", 
                 labelsize=0.65,
                 label.cex = F,
@@ -69,25 +69,34 @@ net=networkPlot(NetMatrix,
 netstat <- networkStat(NetMatrix)
 summary(netstat,k=10)
 
+
 # Co-citation analysis of sources
-M=metaTagExtraction(M,"CR_SO",sep=";")
+M=metaTagExtraction(M,
+                    "CR_SO",
+                    sep=";"
+                    )
+
 NetMatrix <- biblioNetwork(M, 
                            analysis = "co-citation", 
                            network = "sources", 
                            sep = ";")
+
 #dev.off() ## use only if you get an error in graphics
 net=networkPlot(NetMatrix, 
-                n = 40, 
-                Title = "Co-Citation Network Journals", 
-                type = "auto", 
-                size.cex=TRUE, 
-                #size=15, 
+                n = 105, 
+                Title = "Co-Citation Network of Journals Based on Shared References", 
+                type = "auto",
+                labelsize=0.7,
+                label.cex = F,
+                halo=T,
                 community.repulsion = 0.1,
+                #size=2,
+                size.cex=T, 
                 remove.multiple=T, 
-                labelsize=.6,
-                label.cex = TRUE,
+                remove.isolates = T,
                 edgesize = 1, 
-                edges.min=3)
+                edges.min=6
+                )
 
 netstat <- networkStat(NetMatrix)
 summary(netstat,k=10)
