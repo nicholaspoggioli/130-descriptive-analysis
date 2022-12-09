@@ -139,11 +139,11 @@ net=networkPlot(NetMatrix,
 netstat <- networkStat(NetMatrix)
 summary(netstat,k=10)
 
+
 # Co-word Analysis through Correspondence Analysis
 
 ## The field "ID" is used in the original code here, but that is the WoS "Keywords Plus,"
 ## not the author keywords. Those are in the field "DE".
-
 ## From the documentation on conceptualStructure:
 
 ### 'field' is a character object. It indicates one of the field tags of the 
@@ -162,22 +162,25 @@ suppressWarnings(
                             method="MDS", 
                             minDegree=2, 
                             clust="auto", 
-                            stemming=F, 
+                            stemming=T, 
                             labelsize=15,
-                            #documents=20
+                            documents=20
                             )
                 )
 
+
 # Section 5: Thematic Map
 Map=thematicMap(M, 
-                field = "ID", 
+                field = "DE", 
                 n = 250, 
                 minfreq = 4,
-                stemming = FALSE, 
+                stemming = F, 
                 size = 0.7, 
-                n.labels=5, 
-                repel = TRUE)
-
+                n.labels=2,
+                community.repulsion = 0.2,
+                synonyms = ("artificial intelligence;artificial intelligence (ai)"),
+                repel = TRUE,
+                cluster="optimal")
 plot(Map$map)
 
 # Cluster description
