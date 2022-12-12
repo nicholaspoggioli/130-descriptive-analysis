@@ -101,7 +101,17 @@ net=networkPlot(NetMatrix,
 netstat <- networkStat(NetMatrix)
 summary(netstat,k=10)
 
-# Section 3: The conceptual structure - Co-Word Analysis
+# Section 3: Historiograph - Direct citation linkages
+histResults <- histNetwork(M, 
+                           sep = ";")
+
+net21 <- histPlot(histResults, 
+                n=21, 
+                size=2, 
+                labelsize = 4,
+                label="short")
+
+# Section 4: The conceptual structure - Co-Word Analysis
 NetMatrix <- biblioNetwork(M, 
                            analysis = "co-occurrences", 
                            network = "keywords", 
@@ -128,16 +138,6 @@ net=networkPlot(NetMatrix,
 
 netstat <- networkStat(NetMatrix)
 summary(netstat,k=10)
-
-# Section 4: Historiograph - Direct citation linkages
-histResults <- histNetwork(M, 
-                           sep = ";")
-
-net21 <- histPlot(histResults, 
-                  n=21, 
-                  size=2, 
-                  labelsize = 4,
-                  label="short")
 
 
 # Co-word Analysis through Correspondence Analysis
