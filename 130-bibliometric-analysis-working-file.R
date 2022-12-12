@@ -105,11 +105,13 @@ summary(netstat,k=10)
 histResults <- histNetwork(M, 
                            sep = ";")
 
-options(width = 140)
+options(width = 240)
+
 net <- histPlot(histResults, 
-                n=30, 
-                size = 2, 
-                labelsize = 2)
+                n=21, 
+                size=2, 
+                labelsize = 4,
+                label="short")
 
 # Section 4: The conceptual structure - Co-Word Analysis
 NetMatrix <- biblioNetwork(M, 
