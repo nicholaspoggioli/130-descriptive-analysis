@@ -105,8 +105,6 @@ summary(netstat,k=10)
 histResults <- histNetwork(M, 
                            sep = ";")
 
-options(width = 240)
-
 net <- histPlot(histResults, 
                 n=21, 
                 size=2, 
