@@ -243,12 +243,15 @@ NetMatrix <- biblioNetwork(M,
                            )
 
 net=networkPlot(NetMatrix,  
-                n = 20, 
-                Title = "University collaboration",
+                n = 145, 
+                Title = "University Collaboration Network Based on Author Affiliations",
                 type = "auto", 
                 size.cex=T,
+                remove.isolates = T,
+                halo = T,
                 edgesize = 1,
-                label.cex=TRUE,
+                label.cex=F,
+                labelsize = 0.8,
                 community.repulsion = 0.02,
                 edges.min=1
                 )
