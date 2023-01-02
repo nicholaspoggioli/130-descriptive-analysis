@@ -213,15 +213,17 @@ NetMatrix <- biblioNetwork(M,
                            sep = ";"
                            )
 
+
+## RESUME HERE
 net=networkPlot(NetMatrix,  
-                n = 40, 
+                n = 30, 
                 Title = "Author collaboration",
-                type = "auto", 
+                type = "fruchterman", 
                 size.cex=T, 
                 #size=10,
                 edgesize = 1, 
                 normalize = "salton",
-                label.cex=TRUE,
+                label.cex=T,
                 community.repulsion = 0.01,
                 edges.min=1
                 )
