@@ -212,8 +212,6 @@ NetMatrix <- biblioNetwork(M,
                            sep = ";"
                            )
 
-
-## RESUME HERE
 net=networkPlot(NetMatrix,  
                 n = 220, 
                 Title = "Author Collaboration Network",
@@ -273,11 +271,17 @@ NetMatrix <- biblioNetwork(M,
 
 net=networkPlot(NetMatrix,  
                 n = dim(NetMatrix)[1], 
-                Title = "Country collaboration",
-                type = "circle", 
-                size.cex=T,edgesize = 1,
-                label.cex=TRUE, 
-                cluster="none"
+                Title = "Country Collaboration Network Based on Author Affiliations",
+                type = "auto", 
+                labelsize = 1.0,
+                label.cex=F,
+                size=10,
+                size.cex=T,
+                remove.multiple = T,
+                remove.isolates = T,
+                edgesize = 1,
+                cluster="none",
+                alpha=0.9,
                 )
 
 #biblioshiny()
