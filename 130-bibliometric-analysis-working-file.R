@@ -35,7 +35,7 @@ results <- biblioAnalysis(M)
 summary(results, k=10, pause=F, width=130)
 
 # Visualize main findings
-# plot(x=results, k=10, pause=F)
+# plot(x=results, k=10, pause=F)      Commented out on Jan 2 2023 by Poggioli
 
 # Most cited references
 CR <- citations(M, field = "article", sep = ";")
