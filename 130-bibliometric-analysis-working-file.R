@@ -42,7 +42,6 @@ CR <- citations(M, field = "article", sep = ";")
 cbind(CR$Cited[1:20])
 
 
-
 # Section 2: Intellectual structure of the field
 
 # Co-citation analysis of references
@@ -52,9 +51,9 @@ NetMatrix <- biblioNetwork(M,
                            sep = ";")
 net=networkPlot(NetMatrix, 
                 n = 105, 
-                Title = "Co-Citation Network of Publications Based on Shared References", 
+                Title = "Co-Citation Network Based on Shared References", 
                 type = "auto", 
-                labelsize=0.65,
+                labelsize=1.2,
                 label.cex = F,
                 halo=T,
                 community.repulsion = 0.01,
