@@ -14,3 +14,5 @@ figures-and-tables/
 _archive-130-descriptive-analysis/
 .Rhistory
 *.pper
+.Rhistory
+*.pper
