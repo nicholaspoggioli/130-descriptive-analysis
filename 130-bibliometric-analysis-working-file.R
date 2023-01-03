@@ -131,8 +131,9 @@ net=networkPlot(NetMatrix,
                 remove.multiple=T,
                 remove.isolates=T,
                 weighted = T,
-                edgesize = .5,
-                edges.min=1
+                edgesize =0,
+                edges.min=1,
+                alpha=0.8
                 )
 
 netstat <- networkStat(NetMatrix)
