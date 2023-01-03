@@ -131,7 +131,7 @@ net=networkPlot(NetMatrix,
                 remove.multiple=T,
                 remove.isolates=T,
                 weighted = T,
-                edgesize =0,
+                edgesize =1,
                 edges.min=1,
                 alpha=0.8
                 )
